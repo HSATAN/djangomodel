@@ -4,10 +4,6 @@ import requests
 
 data={}
 url='http://localhost:9999/testmodel/adddb'
-for i in range(1,20):
-    r_get=requests.get(url)
-    print(r_get.cookies)
-    data['name']=str(i)
-    headers={'Cookie':'jjjjjjjjjjjjjjjjjjjjjjjj'}
-    response=requests.post(url,data=data,headers=headers)
+for i in range(1,3):
+    response=requests.post(url,data={'name':'你好'})
     print(response.status_code)

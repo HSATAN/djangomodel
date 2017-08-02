@@ -9,12 +9,13 @@ def index(response):
     return render(response,'index.html')
 
 def adddb(request):
-    print(request.COOKIES)
     if request.method=="GET":
         form=NameForm()
         return render(request,'addname.html',{'form':form})
     name=request.POST.get('name','detaulst')
-    test=Test(name=name)
+    age=request.POST.get('age',0)
+    print(name)
+    test=Test(name=name,age=age)
     test.save()
     return django.http.HttpResponseRedirect(reverse("testmodel:allname"))
     return HttpResponse("添加数据记录成功")
